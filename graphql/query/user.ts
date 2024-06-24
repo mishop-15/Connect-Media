@@ -7,7 +7,7 @@ export const verifyUserGoogleTokenQuery = graphql(
     }
 `);
 
-export const getCurrentUserQuery = graphql(`
+export const getCurrentUserQuery = graphql (`#graphql
     query GetCurrentUser {
         getCurrentUser {
             id
@@ -15,6 +15,15 @@ export const getCurrentUserQuery = graphql(`
             email
             firstName
             lastName
+            tweets { 
+                id
+                content
+                author {
+                    firstName
+                    lastName
+                    profileImageURL
+                }
+            }
         }
     }
 `);
