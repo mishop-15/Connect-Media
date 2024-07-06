@@ -13,6 +13,7 @@ import { graphQLClient } from "@/clients/api";
 import { verifyUserGoogleTokenQuery } from "@/graphql/query/user";
 import toast from "react-hot-toast";
 import { useQueryClient } from "@tanstack/react-query";
+import Link from "next/link";
 
 
 interface twitterSidebarButton{
@@ -120,9 +121,14 @@ const TwitterLayout: React.FC <TwitterLayoutProps> = (props) => {
           <div className="mt-4 text-xl font-semibold pr-4">
             <ul>
             {sidebarMenuItems.map(item=> 
-              (<li className=" text 1xl flex justify-start items-center gap-4 hover:bg-gray-800 rounded-full px-5 py-2 w-fit cursor-pointer mt-1 font-semibold">
+              (
+              <li>
+              <Link className=" text 1xl flex justify-start items-center gap-4 hover:bg-gray-800 rounded-full px-5 py-2 w-fit cursor-pointer mt-1 font-semibold" 
+              href={item.link}>  
                 <span className="text-3xl">{item.icon}</span>
-                <span className="hidden sm:inline ">{item.title}</span></li>
+                <span className="hidden sm:inline ">{item.title}</span>
+              </Link>
+              </li>
               ))}
             </ul>
             <div className="mt-5 py-2">
